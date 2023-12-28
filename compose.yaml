@@ -1,0 +1,18 @@
+# Here the instructions define your application as a service. This service is
+# built from the Dockerfile in the current directory. You can add other
+# services your application may depend on here, such as a database or a cache.
+# https://docs.docker.com/compose/compose-file/
+
+services:
+  http2:
+    build:
+      context: .
+    environment:
+      NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
+#      NODE_ENV: production
+    ports:
+      - 8443:8443
+    restart: always
+    # networks:
+    #   - public
+    #   - private
