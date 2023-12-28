@@ -119,10 +119,10 @@ COPY package.json .
 
 # Copy the production dependencies from the deps stage and also
 # the built application from the build stage into the image.
-COPY --from=deps /usr/src/hostconfig/https/node_modules ./node_modules
-COPY --from=build /usr/src/hostconfig/https/dist ./dist
+COPY --from=deps /usr/src/hostconfig/http2/node_modules ./node_modules
+COPY --from=build /usr/src/hostconfig/http2/dist ./dist
 
-COPY --from=build /usr/src/hostconfig/https/.certs ./dist/.certs
+COPY --from=build /usr/src/hostconfig/http2/.certs ./dist/.certs
 
 # Files to be built
 COPY tsconfig.json .
